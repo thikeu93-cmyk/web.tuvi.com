@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Data (runtime generated)
+data/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# AI Agent config
+.agent/
+.gemini/
+
+# Vercel
+.vercel/
+
+# Test files
+test-*.js
+direct-test.js

@@ -1,0 +1,152 @@
+/* mobile.css - Giao diện cho điện thoại (Responsive) */
+
+/* Mặc định trên PC ẩn các thẻ mobile */
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  
+  /* Đảo ngược hiển thị: Ẩn Desktop, Hiện Mobile */
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: flex !important;
+  }
+  
+  /* Xóa background vân mây của PC để tối ưu mobile */
+  body {
+    background-image: none;
+    background-color: var(--bg-color); /* Nền sữa */
+    padding-bottom: 80px; /* Chừa chỗ cho bottom nav */
+  }
+
+  /* Container thành khối dọc chằng chịt */
+  .page-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .content-main {
+    padding: 0;
+  }
+
+  /* Header đỏ trên Mobile */
+  .mobile-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .m-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .m-icon {
+    font-size: 24px;
+    color: var(--accent);
+  }
+
+  /* Hero Banner Mobile */
+  .hero-banner {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin-top: 0;
+    padding: 40px 20px;
+    box-shadow: none;
+  }
+
+  .hero-banner h1 {
+    font-size: 26px;
+  }
+
+  /* Block Content Form */
+  .widget-box {
+    margin: 15px; /* Thụt lề vào thành hình hộp bo gốc */
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .widget-title {
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+
+  /* Biến Form row thành cột đơn trên đt */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-input-hm {
+    padding: 12px 15px;
+    font-size: 16px; /* iOS khỏi auto zoom */
+  }
+
+  .btn-submit-ai {
+    border-radius: 20px;
+  }
+
+  /* Result Box */
+  .result-box {
+    margin: 0 15px 20px 15px;
+    border-radius: 12px;
+  }
+
+  /* Bottom Navigation */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    justify-content: space-around;
+    padding-bottom: env(safe-area-inset-bottom); 
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  .nav-item i {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+  
+  .nav-item.active {
+    color: var(--primary);
+  }
+  
+  .nav-item.active i {
+    color: var(--accent);
+  }
+}

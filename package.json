@@ -1,0 +1,21 @@
+{
+  "name": "xemtuvicohoc",
+  "version": "1.0.0",
+  "description": "Xem Tử Vi Cổ Học - Lập lá số, phong thủy, lịch âm dương",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["tu-vi", "phong-thuy", "lich-am"],
+  "author": "XemTuViCoHoc",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}
+

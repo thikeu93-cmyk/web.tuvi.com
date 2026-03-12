@@ -1,0 +1,177 @@
+/* horoscope-scroll.css - Thiết kế khung Lập lá số tử vi dạng Cuộn Tranh */
+
+.scroll-container {
+  background-color: #f4ebd8; /* Nền giấy nến vàng nhạt */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url('https://www.transparenttextures.com/patterns/rice-paper-2.png'); /* Pattern giấy gạo mờ */
+  border-radius: 4px;
+  position: relative;
+  padding: 40px;
+  box-shadow: 
+    inset 0 0 50px rgba(139, 69, 19, 0.1), /* Bóng mờ viền trong */
+    0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #dcb274;
+}
+
+/* Thanh trúc cuộn tranh 2 bên Desktop */
+.scroll-container::before,
+.scroll-container::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  width: 20px;
+  background: linear-gradient(to right, #4a3424, #8b5a2b, #4a3424); /* Trục gỗ mộc */
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.scroll-container::before {
+  left: -5px;
+}
+.scroll-container::after {
+  right: -5px;
+}
+
+/* Tiêu đề "Lập lá số Tử Vi" giống thiết kế ảnh */
+.scroll-title-wrapper {
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.scroll-title {
+  display: inline-block;
+  background-color: #8c2626; /* Đỏ đun cổ */
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+  padding: 8px 40px;
+  border-radius: 50px;
+  border: 2px solid #5d1919;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.2);
+  /* Viền góc bằng icon hoặc pattern thủ công */
+}
+
+/* Background chìm của Thái Cực Đồ sau lưng form */
+.scroll-bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  opacity: 0.05;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="%23000" stroke-width="2"/><path d="M50 2 A 24 24 0 0 1 50 50 A 24 24 0 0 0 50 98 A 48 48 0 0 1 50 2" fill="%23000"/><circle cx="50" cy="26" r="6" fill="%23fff"/><circle cx="50" cy="74" r="6" fill="%23000"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* Form Styles trong Scroll */
+.tuvi-form {
+  position: relative;
+  z-index: 5;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.tuvi-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: flex-end;
+}
+
+.tuvi-col-1 { flex: 1; }
+.tuvi-col-2 { flex: 2; }
+.tuvi-col-3 { flex: 3; }
+
+.tuvi-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #4a3424; /* Nâu chữ cổ */
+  margin-bottom: 6px;
+  display: block;
+}
+
+.tuvi-input, .tuvi-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #c8a165; /* Vàng đồng */
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8); /* Xuyên thấu nhẹ */
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+}
+.tuvi-input:focus, .tuvi-select:focus {
+  outline: none;
+  border-color: #8c2626;
+  box-shadow: 0 0 0 2px rgba(140, 38, 38, 0.2);
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Nút Lập Lá Số dập màu Vàng Ánh Kim */
+.btn-lap-la-so {
+  padding: 12px 0;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
+  display: block;
+  background-color: #897821; /* Vàng xanh quân sự cổ */
+  background-image: linear-gradient(to bottom, #9d8b28, #756518);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+.btn-lap-la-so:hover {
+  background-image: linear-gradient(to bottom, #af9b2c, #897821);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Pattern dưới chân Cuộn Tranh */
+.scroll-footer-pattern {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 L10 0 L20 10 L10 20 Z" fill="%23dcb274" fill-opacity="0.3"/></svg>');
+  z-index: 1;
+}
+
+/* Responsive cho điện thoại thì tắt gậy cuộn đi */
+@media (max-width: 768px) {
+  .scroll-container {
+    padding: 20px 15px;
+  }
+  .scroll-container::before, .scroll-container::after {
+    display: none;
+  }
+}

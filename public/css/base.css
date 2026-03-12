@@ -1,0 +1,157 @@
+/* base.css - Cập nhật cho Desktop Full Width */
+
+:root {
+  /* Colors */
+  --primary: #b31b1b; /* Màu đỏ đô chuẩn Việt Nam */
+  --primary-rgb: 179, 27, 27;
+  --primary-dark: #8a1010;
+  --accent: #d4af37;
+  --accent-light: #f5e6c8;
+  --bg-color: #f9f5ed; /* Nền giấy cổ */
+  --bg-white: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-color: #e2d5c3;
+
+  /* Typography */
+  --font-heading: 'Roboto', 'Arial', sans-serif;
+  --font-body: 'Arial', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><g fill="%23d4af37" fill-opacity="0.03" fill-rule="evenodd"><circle cx="3" cy="3" r="3"/><circle cx="53" cy="53" r="3"/></g></svg>'); /* Pattern mờ mây khói / giấy tờ */
+}
+
+/* Container chuẩn Web PC (Max width 1200px ở giữa màn) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Grid Layout 3 Cột (Sidebar Trái - Main - Sidebar Phải giống tuvi.vn) */
+.page-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 280px;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+/* Mobile Fallback */
+@media (max-width: 992px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--spacing-sm); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid var(--primary-dark);
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+  border-color: #ccc;
+}
+
+/* Block Widget Styles (Kiểu các gạch trên tuvi.vn) */
+.widget-box {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.widget-title {
+  background-color: var(--primary);
+  color: white;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid var(--accent);
+  /* Pattern cổ trên title bar */
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><g fill="%23000" fill-opacity="0.1"><path d="M10 0l10 10-10 10L0 10z"/></g></svg>');
+}
+
+.widget-content {
+  padding: var(--spacing-md);
+}
+
+.widget-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+.widget-list li:last-child {
+  border-bottom: none;
+}
+.widget-list li::before {
+  content: "✦";
+  color: var(--primary);
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 10px;
+}

@@ -1,0 +1,482 @@
+/* calendar.css - Lịch âm dương page */
+
+.cal-main {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+}
+
+/* === Hero Day Display === */
+.cal-hero {
+  background: linear-gradient(135deg, #8b0000 0%, #a52a2a 30%, #cd5c5c 100%);
+  border-radius: 16px;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(139,0,0,0.3);
+}
+
+.cal-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cal-hero-month {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.cal-hero-day {
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1;
+  margin: 10px 0;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cal-hero-weekday {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cal-hero-quote {
+  font-size: 13px;
+  opacity: 0.8;
+  font-style: italic;
+  max-width: 400px;
+  margin: 10px auto 0;
+  line-height: 1.5;
+}
+
+.cal-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.cal-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.3s;
+}
+
+.cal-nav a:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+/* === Lunar Row === */
+.cal-lunar-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.cal-lunar-item {
+  text-align: center;
+}
+
+.cal-lunar-item .val {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cal-lunar-item .lbl {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* === Day Info Sections === */
+.cal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cal-section {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid #f0e6d6;
+}
+
+.cal-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b4513;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #fdf6ec, #fff9f0);
+  border-bottom: 1px solid #f0e6d6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cal-section-title i {
+  font-size: 18px;
+  color: #b8860b;
+}
+
+.cal-section-content {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.cal-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cal-badge.hoang-dao {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.cal-badge.hac-dao {
+  background: #fce4ec;
+  color: #c62828;
+}
+
+.cal-info-row {
+  display: flex;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.cal-info-row .label {
+  color: #888;
+  min-width: 100px;
+  font-size: 13px;
+}
+
+.cal-info-row .value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Hoàng đạo grid */
+.cal-gio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.cal-gio-item {
+  background: #f0fff0;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+/* Sao list */
+.cal-sao-tot { color: #e65100; }
+.cal-sao-xau { color: #c62828; }
+
+.cal-sao-item {
+  padding: 4px 0;
+  font-size: 13px;
+  border-bottom: 1px dotted #eee;
+}
+
+.cal-sao-item:last-child { border-bottom: none; }
+
+/* === Sidebar calendar === */
+.cal-sidebar {
+  position: sticky;
+  top: 15px;
+  align-self: start;
+}
+
+.cal-month-box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid #f0e6d6;
+  overflow: hidden;
+}
+
+.cal-month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background: #8b0000;
+  color: white;
+  font-weight: 600;
+}
+
+.cal-month-header a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.cal-month-header a:hover { background: rgba(255,255,255,0.2); }
+
+.cal-month-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.cal-month-table th {
+  font-size: 13px;
+  padding: 10px 2px;
+  color: #666;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  width: calc(100% / 7);
+}
+
+.cal-month-table td {
+  padding: 3px 2px;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.cal-day-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 3px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  min-height: 56px;
+  justify-content: center;
+  gap: 1px;
+}
+
+.cal-day-cell:hover {
+  background: #fff3e0;
+  transform: scale(1.05);
+}
+
+.cal-day-cell .solar {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+}
+
+.cal-day-cell .lunar {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.1;
+}
+
+.cal-day-cell .canchi {
+  font-size: 9px;
+  color: #aaa;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.cal-day-cell.today {
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(183,28,28,0.4);
+}
+
+.cal-day-cell.today .solar {
+  color: #ffeb3b;
+  font-weight: 800;
+}
+
+.cal-day-cell.today .lunar {
+  color: #fff9c4;
+}
+
+.cal-day-cell.today .canchi {
+  color: #ffcc80;
+}
+
+.cal-day-cell.hoang-dao .solar::after {
+  content: '•';
+  color: #e65100;
+  font-size: 8px;
+  margin-left: 2px;
+  vertical-align: super;
+}
+
+.cal-day-cell.selected {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+  box-shadow: 0 2px 6px rgba(255,152,0,0.2);
+}
+
+/* Date Picker */
+.cal-datepicker {
+  display: flex;
+  gap: 6px;
+  padding: 12px;
+  background: #fdf6ec;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cal-datepicker select,
+.cal-datepicker input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  background: white;
+}
+
+.cal-datepicker input { width: 70px; }
+
+.cal-datepicker .btn-go {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.cal-datepicker .btn-go:hover {
+  background: #b71c1c;
+}
+
+/* Nhị thập bát tú box */
+.cal-ntbt-box {
+  background: #fffaf0;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px dashed #ddd;
+}
+
+.cal-ntbt-box .sao-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #8b4513;
+}
+
+.cal-ntbt-box .sao-info {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+   ========================= */
+
+/* Tablet & small desktop */
+@media (max-width: 1024px) {
+  .cal-main {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+  .cal-sidebar { position: static; }
+}
+
+/* iPhone 12/13/14/15 Pro Max, Android lớn (414px+) */
+@media (max-width: 768px) {
+  .cal-main { padding: 10px; }
+  .cal-hero { padding: 20px 15px; border-radius: 12px; }
+  .cal-hero-day { font-size: 64px; }
+  .cal-hero-weekday { font-size: 18px; }
+  .cal-hero-quote { font-size: 12px; }
+  .cal-lunar-row { gap: 15px; padding: 10px 12px; }
+  .cal-lunar-item .val { font-size: 15px; }
+  .cal-gio-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .cal-gio-item { padding: 6px 4px; font-size: 12px; }
+  .cal-section-title { padding: 10px 14px; font-size: 14px; }
+  .cal-section-content { padding: 12px 14px; font-size: 13px; }
+  .cal-day-cell { min-height: 50px; padding: 5px 2px; }
+  .cal-day-cell .solar { font-size: 15px; }
+  .cal-day-cell .lunar { font-size: 10px; }
+  .cal-day-cell .canchi { font-size: 8px; }
+}
+
+/* iPhone 12/13/14 standard, Pixel (390px) */
+@media (max-width: 430px) {
+  .cal-hero-day { font-size: 56px; }
+  .cal-hero-month { font-size: 14px; }
+  .cal-lunar-row { gap: 10px; }
+  .cal-lunar-item .val { font-size: 14px; }
+  .cal-nav a { width: 34px; height: 34px; font-size: 22px; }
+  .cal-gio-grid { grid-template-columns: repeat(2, 1fr); }
+  .cal-day-cell { min-height: 46px; }
+  .cal-day-cell .solar { font-size: 14px; }
+  .cal-day-cell .canchi { font-size: 7px; }
+  .cal-datepicker { gap: 4px; padding: 10px 8px; }
+  .cal-datepicker select, .cal-datepicker input { padding: 5px 6px; font-size: 12px; }
+  .cal-datepicker input { width: 55px; }
+  .cal-info-row .label { min-width: 80px; font-size: 12px; }
+  .cal-info-row .value { font-size: 13px; }
+}
+
+/* iPhone SE, iPhone Mini, Android nhỏ (375px-) */
+@media (max-width: 375px) {
+  .cal-main { padding: 6px; }
+  .cal-hero { padding: 15px 10px; }
+  .cal-hero-day { font-size: 48px; }
+  .cal-hero-weekday { font-size: 16px; }
+  .cal-hero-quote { display: none; }
+  .cal-lunar-row { gap: 8px; padding: 8px; }
+  .cal-lunar-item .val { font-size: 13px; }
+  .cal-lunar-item .lbl { font-size: 10px; }
+  .cal-section-title { padding: 8px 10px; font-size: 13px; }
+  .cal-section-content { padding: 10px; }
+  .cal-day-cell { min-height: 42px; padding: 3px 1px; }
+  .cal-day-cell .solar { font-size: 13px; }
+  .cal-day-cell .lunar { font-size: 9px; }
+  .cal-day-cell .canchi { display: none; }
+  .cal-month-table th { font-size: 11px; padding: 6px 1px; }
+  .cal-gio-item { font-size: 11px; padding: 5px 3px; }
+  .cal-ntbt-box .sao-name { font-size: 15px; }
+}
